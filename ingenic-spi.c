@@ -49,7 +49,7 @@
 #include <asm/uaccess.h>
 #include <asm/cacheflush.h>
 #include <soc/gpio.h>
-#include "ingenic-motor.h"
+#include "ingenic-spi.h"
 #include "ms419xx_spi_dev.h"
 
 
