@@ -1,18 +1,35 @@
-CROSS_COMPILE ?= mips-linux-gnu-
+# Makefile for ingenic-spi
 
-KDIR := ${ISVP_ENV_KERNEL_DIR}
+# Uncomment and set CROSS_COMPILE if needed
+# CROSS_COMPILE?= mipsel-linux-
 
-MODULE_NAME := ingenic_spi
+# Compiler settings
+CC := $(CROSS_COMPILE)gcc
+CFLAGS := -fPIC -std=gnu99 -ldl -lm -pthread -Os -ffunction-sections -fdata-sections -fomit-frame-pointer
+LDFLAGS := -Wl,--gc-sections
 
-all: modules
+# Source files
+SRC = ingenic-spi.c ms419xx_spi_dev.c
 
-.PHONY: modules clean
+# Target binary name
+TARGET = ingenic-spi
 
-$(MODULE_NAME)-objs := ms419xx_spi_dev.o ingenic-spi.o
-obj-m := $(MODULE_NAME).o
+# Fetch the latest commit tag (or hash if no tags are present)
+COMMIT_TAG = $(shell git describe --tags --always)
 
-modules:
-	@$(MAKE) -C $(KDIR) M=$(shell pwd) $@
+all: $(TARGET)
+
+# Ensure version.h is rebuilt when the commit tag changes
+version.h: version.tpl.h
+	@echo "Generating version.h"
+	@sed 's/COMMIT_TAG/"$(COMMIT_TAG)"/' $< > $@
+
+$(TARGET): version.h $(SRC)
+	@echo "Building target $(TARGET) with CC=$(CC)"
+	@$(CC) $(CFLAGS) $(LDFLAGS) $(SRC) -o $(TARGET)  # Use LDFLAGS and CC for linking
+	@echo "Stripping target $(TARGET)"
+	@$(CROSS_COMPILE)strip $(TARGET)
 
 clean:
-	@rm -rf *.o *~ .depend .*.cmd  *.mod.c .tmp_versions *.ko *.symvers modules.order
+	@echo "Cleaning up"
+	@rm -f $(TARGET) version.h
