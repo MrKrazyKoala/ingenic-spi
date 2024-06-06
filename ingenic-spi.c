@@ -16,7 +16,7 @@
 
 //#include <linux/mm.h>
 #include </fw-builds/thingino-firmware/buildroot/dl/linux/git/include/linux/mm.h>
-#include <mm.h>
+//#include <mm.h>
 #include <linux/fs.h>
 //#include <linux/clk.h>
 #include <clk.h>
