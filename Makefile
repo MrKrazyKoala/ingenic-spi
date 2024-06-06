@@ -5,7 +5,7 @@
 
 # Compiler settings
 CC := $(CROSS_COMPILE)gcc
-CFLAGS := -fPIC -std=gnu99 -ldl -lm -pthread -Os -ffunction-sections -fdata-sections -fomit-frame-pointer
+CFLAGS := -fPIC -std=gnu99 -ldl -lm -pthread -Os -ffunction-sections -fdata-sections -fomit-frame-pointer -I$(KERNEL_DIR)/include
 LDFLAGS := -Wl,--gc-sections
 
 # Source files
@@ -21,15 +21,15 @@ all: $(TARGET)
 
 # Ensure version.h is rebuilt when the commit tag changes
 version.h: version.tpl.h
-	@echo "Generating version.h"
-	@sed 's/COMMIT_TAG/"$(COMMIT_TAG)"/' $< > $@
+    @echo "Generating version.h"
+    @sed 's/COMMIT_TAG/"$(COMMIT_TAG)"/' $< > $@
 
 $(TARGET): version.h $(SRC)
-	@echo "Building target $(TARGET) with CC=$(CC)"
-	@$(CC) $(CFLAGS) $(LDFLAGS) $(SRC) -o $(TARGET)  # Use LDFLAGS and CC for linking
-	@echo "Stripping target $(TARGET)"
-	@$(CROSS_COMPILE)strip $(TARGET)
+    @echo "Building target $(TARGET) with CC=$(CC)"
+    @$(CC) $(CFLAGS) $(LDFLAGS) $(SRC) -o $(TARGET)  # Use LDFLAGS and CC for linking
+    @echo "Stripping target $(TARGET)"
+    @$(CROSS_COMPILE)strip $(TARGET)
 
 clean:
-	@echo "Cleaning up"
-	@rm -f $(TARGET) version.h
+    @echo "Cleaning up"
+    @rm -f $(TARGET) version.h
