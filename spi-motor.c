@@ -2,6 +2,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/ioctl.h> // Include this header for ioctl
 #include "spi-motor.h"
 
