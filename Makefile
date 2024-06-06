@@ -1,4 +1,4 @@
-# Makefile for ingenic-spi
+# Makefile for spi-motor
 
 # Uncomment and set CROSS_COMPILE if needed
 # CROSS_COMPILE?= mipsel-linux-
@@ -9,10 +9,10 @@ CFLAGS := -fPIC -std=gnu99 -ldl -lm -pthread -Os -ffunction-sections -fdata-sect
 LDFLAGS := -Wl,--gc-sections
 
 # Source files
-SRC = ingenic-spi.c ms419xx_spi_dev.c
+SRC = spi-motor.c
 
 # Target binary name
-TARGET = ingenic-spi
+TARGET = spi-motor
 
 # Fetch the latest commit tag (or hash if no tags are present)
 COMMIT_TAG = $(shell git describe --tags --always)
