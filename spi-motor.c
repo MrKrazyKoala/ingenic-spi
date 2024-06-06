@@ -66,6 +66,6 @@ int main(int argc, const char* argv[])
         }
     }
 
-    close(fd);
+    pclose(fd);
     return 0;
 }
