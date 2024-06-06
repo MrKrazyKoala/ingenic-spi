@@ -12,7 +12,7 @@
  *
  * */
 #include <linux/kernel.h>
-#include <linux/slab.h>
+#include <slab.h>
 #include <linux/kallsyms.h>
 #include <linux/freezer.h>
 #include <linux/delay.h>
