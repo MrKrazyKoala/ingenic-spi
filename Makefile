@@ -31,5 +31,5 @@ $(TARGET): version.h $(SRC)
 	@$(CROSS_COMPILE)strip $(TARGET)
 
 clean:
-    @echo "Cleaning up"
-    @rm -f $(TARGET) version.h
+	@echo "Cleaning up"
+	@rm -f $(TARGET) version.h
