@@ -14,14 +14,9 @@
  * GNU General Public License for more details.
  */
 
-//#include <linux/mm.h>
-#include </fw-builds/thingino-firmware/buildroot/dl/linux/git/include/linux/mm.h>
-//#include <mm.h>
+#include <linux/mm.h>
 #include <linux/fs.h>
-//#include <linux/clk.h>
-//#include <clk.h>
-#include <linux/git/include/linux/clk.h>
-//#include </fw-builds/thingino-firmware/buildroot/dl/linux/git/include/linux/clk.h>
+#include <linux/clk.h>
 #include <linux/pwm.h>
 #include <linux/file.h>
 #include <linux/list.h>
