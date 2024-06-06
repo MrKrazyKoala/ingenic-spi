@@ -25,10 +25,10 @@ version.h: version.tpl.h
 	@sed 's/COMMIT_TAG/"$(COMMIT_TAG)"/' $< > $@
 
 $(TARGET): version.h $(SRC)
-    	@echo "Building target $(TARGET) with CC=$(CC)"
-    	@$(CC) $(CFLAGS) $(LDFLAGS) $(SRC) -o $(TARGET)  # Use LDFLAGS and CC for linking
-   	@echo "Stripping target $(TARGET)"
-   	@$(CROSS_COMPILE)strip $(TARGET)
+	@echo "Building target $(TARGET) with CC=$(CC)"
+	@$(CC) $(CFLAGS) $(LDFLAGS) $(SRC) -o $(TARGET)  # Use LDFLAGS and CC for linking
+	@echo "Stripping target $(TARGET)"
+	@$(CROSS_COMPILE)strip $(TARGET)
 
 clean:
     @echo "Cleaning up"
