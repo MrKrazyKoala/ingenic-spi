@@ -12,7 +12,8 @@
  *
  * */
 #include <linux/kernel.h>
-#include <linux/slab.h>
+//#include <linux/slab.h>
+#include </fw-builds/thingino-firmware/buildroot/dl/linux/git/include/linux/slab.h>
 #include <linux/kallsyms.h>
 #include <linux/freezer.h>
 #include <linux/delay.h>
