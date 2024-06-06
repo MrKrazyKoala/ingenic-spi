@@ -21,8 +21,8 @@ all: $(TARGET)
 
 # Ensure version.h is rebuilt when the commit tag changes
 version.h: version.tpl.h
-    @echo "Generating version.h"
-    @sed 's/COMMIT_TAG/"$(COMMIT_TAG)"/' $< > $@
+	@echo "Generating version.h"
+	@sed 's/COMMIT_TAG/"$(COMMIT_TAG)"/' $< > $@
 
 $(TARGET): version.h $(SRC)
     @echo "Building target $(TARGET) with CC=$(CC)"
