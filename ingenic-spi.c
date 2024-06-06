@@ -9,12 +9,13 @@
  * may be copied, distributed, and modified under those terms.
  *
  * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * but WITHOUT ANY WARRANTY; without even the implied warranty oflinux/mm.h>
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
 
-#include <linux/mm.h>
+//#include <linux/mm.h>
+#include </fw-builds/thingino-firmware/buildroot/dl/linux/git/include/linux/mm.h>
 #include <linux/fs.h>
 #include <linux/clk.h>
 #include <linux/pwm.h>
